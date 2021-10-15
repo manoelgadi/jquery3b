@@ -7,6 +7,7 @@
 <p> Pinchame y te sorprenderas 1 </p>
 <p> Pinchame y te sorprenderas 2 </p>
 <p> Pinchame y te sorprenderas 3 </p>
+<button> Enseñar</button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
 <script>
@@ -16,11 +17,10 @@
 
 $(document).ready(
 	//$("p").click(function (){$(this).append("Hacked by jQuery by TAG shorted!")})
-	$("p").click(function () {$(this).hide()})
+	$("p").click(function () {$(this).hide()}),
+	$("button").click(function (){$("p").show()})
+	
 )
-
-
-
 
 </script> 
 
