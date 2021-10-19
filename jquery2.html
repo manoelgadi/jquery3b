@@ -1,0 +1,84 @@
+<html>
+<head>
+<title> Ejemplo Jquery 2</title>
+</head>
+</body>
+<h1> Mi primer ejemplo jQuery </h1>
+<button id="cambia"> Cambia </button>
+
+
+<br>
+<br>
+<br>
+
+<button id="izquierda"> <- </button>
+<button id="derecha"> -> </button>
+<div id="pinchame">
+	<img id="interrogacion" src="image-cover.jpg" alt="" width="100" height ="123" 
+		style="position: relative; left: 10px;">
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+
+	$(document).ready(
+		$("#cambia").click(
+			function(){
+				$("h1").text("Mi primer ejemplo jQuery - v1")
+				.css("border","10px solid blue")
+				.css("color","red")
+				.css("background","yellow")
+			}
+		),
+		//$("#menea").animate({css},tiempo,function_para_hacer_al_final)
+		
+		$("#derecha").click(function(){
+			$("#interrogacion").animate({
+						opacity:"0.25",
+						left:"+=200",
+						height:"swing"
+					},3000,function(){$(this).after("<p> animación terminada. </p>")})		
+		}),
+		$("#izquierda").click(function(){
+			$("#interrogacion").animate({
+						opacity:"1.0",
+						left:"-=200",
+						height:"swing"
+					},3000,function(){$(this).after("<p> animación terminada. </p>")})		
+		}),
+
+		$(document).keydown(function(e){
+		   switch (e.which){
+				case 37:    //left arrow key
+					$("#interrogacion").finish().animate({
+						left: "-=50"
+					});
+					break;
+				case 38:    //up arrow key
+					$("#interrogacion").finish().animate({
+						top: "-=50"
+					});
+					break;					
+				case 39:    //right arrow key
+					$("#interrogacion").finish().animate({
+						left: "+=50"
+					});
+					break;
+				case 40:    //bottom arrow key
+					$("#interrogacion").finish().animate({
+						top: "+=50"
+					});
+					break;					
+		   }
+		})
+		
+		
+
+	)
+
+
+</script> 
+
+</body>
+</html>
